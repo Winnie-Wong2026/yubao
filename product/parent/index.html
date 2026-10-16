@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="聿宝家长">
+    <title>聿宝星球 · 家长端</title>
+    <link rel="manifest" href="manifest.webmanifest?v=1.2.4-pwa2">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/01_品牌与入口/brand_parent_apple_touch_icon_180_v02.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/01_品牌与入口/brand_parent_pwa_icon_192_v02.png">
+    <link rel="stylesheet" href="../shared.css?v=1.2.6">
+    <link rel="stylesheet" href="parent.css?v=1.2.6-taskscope1">
+  </head>
+  <body>
+    <section id="parent-login" class="parent-login">
+      <form id="login-form" class="login-panel">
+        <img src="/assets/01_品牌与入口/brand_parent_app_icon_v01.png" alt="">
+        <div><div class="login-eyebrow">家长专用入口</div><h1>聿宝星球家长端</h1><p>输入家长 PIN 后管理任务、星币和奖励。</p></div>
+        <label class="field"><span>家长 PIN</span><input name="pin" type="password" inputmode="numeric" maxlength="6" autocomplete="current-password" placeholder="请输入 PIN" required data-testid="parent-pin"></label>
+        <div class="form-error" id="login-error" aria-live="polite"></div>
+        <button class="primary-button" type="submit" data-testid="parent-login">安全进入</button>
+        <small>家长 PIN 由家庭管理员设置，请勿告诉孩子。</small>
+      </form>
+    </section>
+
+    <div id="parent-app" class="parent-app" hidden>
+      <aside class="parent-sidebar">
+        <div class="parent-brand"><img src="/assets/01_品牌与入口/brand_parent_app_icon_v01.png" alt=""><div><strong>聿宝星球</strong><span>家长端</span></div></div>
+        <nav aria-label="家长端主导航">
+          <button data-view="dashboard" data-testid="parent-nav-dashboard"><i data-lucide="house"></i><span>首页</span></button>
+          <button data-view="tasks" data-testid="parent-nav-tasks"><i data-lucide="list-checks"></i><span>任务</span></button>
+          <button data-view="confirmations" data-testid="parent-nav-confirmations"><i data-lucide="inbox"></i><span>待处理</span><b id="pending-badge"></b></button>
+          <button data-view="rewards" data-testid="parent-nav-rewards"><i data-lucide="gift"></i><span>奖励</span></button>
+          <button data-view="records" data-testid="parent-nav-records"><i data-lucide="notebook-tabs"></i><span>记录</span></button>
+          <button data-view="settings" data-testid="parent-nav-settings"><i data-lucide="settings"></i><span>设置</span></button>
+        </nav>
+        <button class="parent-child-link" data-action="open-child"><i data-lucide="external-link"></i><span>打开孩子端</span></button>
+      </aside>
+      <div class="parent-workspace">
+        <header class="parent-topbar"><button class="icon-button mobile-menu" data-action="toggle-menu" aria-label="打开导航"><i data-lucide="menu"></i></button><div><strong id="topbar-title">首页</strong><span id="topbar-subtitle">聿宝家庭</span></div><div class="topbar-wallet" id="topbar-wallet"></div></header>
+        <main id="parent-main" class="parent-main"></main>
+      </div>
+    </div>
+    <div id="parent-modal"></div>
+    <div id="task-detail-root"></div>
+    <script src="/vendor/lucide.min.js"></script>
+    <script type="module" src="parent.js?v=1.2.6-taskscope1"></script>
+  </body>
+</html>

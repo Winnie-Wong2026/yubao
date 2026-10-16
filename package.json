@@ -1,0 +1,13 @@
+{
+  "name": "dailyplan",
+  "version": "1.2.6",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node tests/task-guide-api.mjs && node tests/task-submission-api.mjs && node tests/task-submission-security-api.mjs && node tests/task-records-api.mjs && node tests/task-scope.mjs && node tests/child-shop-preview-static.mjs && node tests/child-navigation-performance-static.mjs && node tests/parent-dashboard-navigation-static.mjs && node tests/parent-login-security-static.mjs && node tests/pwa-icons-static.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

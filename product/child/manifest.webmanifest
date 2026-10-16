@@ -1,0 +1,16 @@
+{
+  "name": "聿宝星球 · 孩子端",
+  "short_name": "聿宝星球",
+  "description": "聿宝的家庭学习任务与星币奖励星球",
+  "id": "/product/child/",
+  "start_url": "/product/child/",
+  "scope": "/product/child/",
+  "display": "standalone",
+  "background_color": "#f7f3ef",
+  "theme_color": "#ef7882",
+  "orientation": "any",
+  "icons": [
+    { "src": "/assets/01_品牌与入口/brand_child_pwa_icon_192_v02.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/01_品牌与入口/brand_child_pwa_icon_512_v02.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

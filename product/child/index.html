@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#ef7882">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="聿宝星球">
+    <title>聿宝星球 · 孩子端</title>
+    <link rel="manifest" href="manifest.webmanifest?v=1.2.4-pwa2">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/01_品牌与入口/brand_child_apple_touch_icon_180_v02.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/01_品牌与入口/brand_child_pwa_icon_192_v02.png">
+    <link rel="stylesheet" href="../shared.css?v=1.2.6">
+    <link rel="stylesheet" href="child.css?v=1.2.6-taskscope1">
+  </head>
+  <body>
+    <div id="child-app" class="child-app" aria-busy="true">
+      <header class="child-header">
+        <div class="child-brand">
+          <img src="/assets/01_品牌与入口/brand_child_app_icon_v01.png" alt="">
+          <div><strong>聿宝星球</strong><span>聿宝的学习星球</span></div>
+        </div>
+        <div class="child-header-actions">
+          <div class="child-balance" data-testid="child-balance"></div>
+          <button class="icon-button" data-action="open-records" aria-label="星币记录" title="星币记录"><i data-lucide="notebook-tabs"></i></button>
+          <button class="icon-button" data-action="open-settings" aria-label="设置" title="设置"><i data-lucide="settings"></i></button>
+        </div>
+      </header>
+      <main id="child-main" class="child-main"></main>
+      <nav class="child-nav" aria-label="孩子端主导航">
+        <button data-view="planet" data-testid="nav-planet"><i data-lucide="orbit"></i><span>星球</span></button>
+        <button data-view="tasks" data-testid="nav-tasks"><i data-lucide="list-checks"></i><span>任务</span></button>
+        <button data-view="calendar" data-testid="nav-calendar"><i data-lucide="calendar-days"></i><span>日历</span></button>
+        <button data-view="dress" data-testid="nav-dress"><i data-lucide="shirt"></i><span>装扮</span></button>
+        <button data-view="shop" data-testid="nav-shop"><i data-lucide="store"></i><span>商店</span></button>
+      </nav>
+    </div>
+    <div id="child-modal"></div>
+    <script src="/vendor/lucide.min.js"></script>
+    <script type="module" src="child.js?v=1.2.6-taskscope1"></script>
+  </body>
+</html>

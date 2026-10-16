@@ -1,0 +1,11 @@
+.DS_Store
+.git
+.gitignore
+.env
+.env.*
+*.log
+
+product/data/*
+!product/data/.gitkeep
+product/uploads/*
+!product/uploads/.gitkeep

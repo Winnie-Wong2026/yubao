@@ -1,0 +1,16 @@
+.DS_Store
+*.log
+node_modules/
+
+# Family runtime data and uploaded files stay local.
+product/data/*
+!product/data/.gitkeep
+product/uploads/*
+!product/uploads/.gitkeep
+product/backups/
+
+# Local editor and environment settings.
+.env
+.env.*
+.vscode/
+.idea/

@@ -1,0 +1,64 @@
+name: yubao-dailyplan
+
+services:
+  app:
+    build:
+      context: ./app
+    image: yubao-dailyplan:1.2.4
+    container_name: yubao-dailyplan-app
+    restart: unless-stopped
+    init: true
+    user: "1000:1000"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 8787
+      TZ: Asia/Shanghai
+      YUBAO_FAMILY_CODE: ${YUBAO_FAMILY_CODE}
+      YUBAO_PARENT_PIN: ${YUBAO_PARENT_PIN}
+      YUBAO_FAMILY_NAME: ${YUBAO_FAMILY_NAME}
+      YUBAO_CHILD_NAME: ${YUBAO_CHILD_NAME}
+      YUBAO_CHILD_GRADE: ${YUBAO_CHILD_GRADE}
+    ports:
+      - "127.0.0.1:8787:8787"
+    volumes:
+      - yubao-dailyplan-data:/app/product/data
+      - yubao-dailyplan-uploads:/app/product/uploads
+    networks:
+      - yubao-dailyplan-net
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8787/healthz').then((r)=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+networks:
+  yubao-dailyplan-net:
+    name: yubao-dailyplan-net
+    driver: bridge
+
+volumes:
+  yubao-dailyplan-data:
+    name: yubao-dailyplan-data
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /opt/yubao-dailyplan/data
+  yubao-dailyplan-uploads:
+    name: yubao-dailyplan-uploads
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /opt/yubao-dailyplan/uploads

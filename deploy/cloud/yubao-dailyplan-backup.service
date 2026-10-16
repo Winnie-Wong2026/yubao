@@ -1,0 +1,9 @@
+[Unit]
+Description=Back up Yubao DailyPlan data and uploads
+After=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/yubao-dailyplan-backup
+User=root
+Group=root

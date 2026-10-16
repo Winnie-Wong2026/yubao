@@ -1,0 +1,16 @@
+{
+  "name": "聿宝星球 · 家长端",
+  "short_name": "聿宝家长",
+  "description": "聿宝星球家庭任务与奖励管理端",
+  "id": "/product/parent/",
+  "start_url": "/product/parent/",
+  "scope": "/product/parent/",
+  "display": "standalone",
+  "background_color": "#eef2f4",
+  "theme_color": "#ffffff",
+  "orientation": "any",
+  "icons": [
+    { "src": "/assets/01_品牌与入口/brand_parent_pwa_icon_192_v02.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/01_品牌与入口/brand_parent_pwa_icon_512_v02.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

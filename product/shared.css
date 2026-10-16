@@ -1,0 +1,104 @@
+:root {
+  --ink: #26333d;
+  --muted: #687681;
+  --coral: #ef7882;
+  --coral-strong: #d95d69;
+  --coral-soft: #fff0f1;
+  --green: #68b983;
+  --green-soft: #eaf7ee;
+  --blue: #5b94c9;
+  --blue-soft: #edf6ff;
+  --gold: #e9ad38;
+  --gold-soft: #fff7df;
+  --paper: #ffffff;
+  --surface: #f4f6f7;
+  --line: #dce3e7;
+  --shadow: 0 12px 32px rgba(46, 61, 72, .12);
+  --radius: 8px;
+  font-family: Inter, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--surface);
+}
+
+* { box-sizing: border-box; }
+html, body { min-height: 100%; margin: 0; }
+body { min-width: 320px; }
+body.overlay-open { overflow: hidden; }
+button, input, textarea, select { font: inherit; letter-spacing: 0; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: .48; }
+img { display: block; max-width: 100%; }
+h1, h2, h3, p { margin-top: 0; }
+a { color: inherit; }
+[hidden] { display: none !important; }
+
+.icon-button, .primary-button, .secondary-button, .danger-button, .text-button {
+  min-height: 42px;
+  border-radius: 7px;
+  border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 700;
+}
+.primary-button { padding: 0 18px; color: #fff; background: var(--coral); }
+.primary-button:hover { background: var(--coral-strong); }
+.secondary-button { padding: 0 18px; color: var(--ink); background: #fff; border-color: #cbd6dc; }
+.secondary-button:hover { border-color: #9fadb5; }
+.danger-button { padding: 0 18px; color: #b74b55; background: #fff; border-color: #f1b7bd; }
+.text-button { padding: 0 8px; color: var(--coral-strong); background: transparent; }
+.icon-button { width: 42px; padding: 0; color: var(--ink); background: rgba(255,255,255,.92); border-color: rgba(203,214,220,.9); }
+.icon-button svg, button svg, nav svg { width: 19px; height: 19px; }
+
+.coin-value { display: inline-flex; align-items: center; gap: 6px; font-weight: 800; white-space: nowrap; }
+.coin-value img { width: 24px; height: 24px; object-fit: contain; }
+.status-chip { display: inline-flex; align-items: center; gap: 5px; width: fit-content; padding: 5px 9px; border-radius: 999px; color: #46606f; background: #eef2f4; font-size: 12px; font-weight: 700; }
+.status-chip.todo { color: #356d9d; background: var(--blue-soft); }
+.status-chip.pending { color: #9b6514; background: var(--gold-soft); }
+.status-chip.redo, .status-chip.rejected { color: #b5525b; background: var(--coral-soft); }
+.status-chip.done, .status-chip.approved, .status-chip.fulfilled, .status-chip.completed { color: #3d7b52; background: var(--green-soft); }
+
+.app-toast { position: fixed; z-index: 1000; left: 50%; bottom: 28px; transform: translate(-50%, 24px); min-width: 240px; max-width: min(90vw, 520px); padding: 13px 18px; border-radius: 8px; color: #fff; background: #2f3b43; box-shadow: var(--shadow); opacity: 0; pointer-events: none; transition: .2s ease; text-align: center; font-weight: 700; }
+.app-toast.show { transform: translate(-50%, 0); opacity: 1; }
+.app-toast.error { background: #b9525b; }
+
+.modal-backdrop { position: fixed; z-index: 200; inset: 0; display: grid; place-items: center; padding: 24px; background: rgba(30, 39, 45, .42); backdrop-filter: blur(3px); }
+.modal { width: min(620px, 100%); max-height: calc(100vh - 48px); overflow: auto; padding: 24px; border-radius: 8px; background: #fff; box-shadow: 0 20px 70px rgba(27, 38, 45, .28); }
+.modal.wide { width: min(920px, 100%); }
+.modal-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; margin-bottom: 18px; }
+.modal-header h2 { margin-bottom: 5px; }
+.modal-header p { color: var(--muted); margin-bottom: 0; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line); }
+
+.image-viewer { position: fixed; z-index: 1000; inset: 0; display: grid; place-items: center; padding: 72px 24px 24px; background: rgba(20,27,32,.88); }
+.image-viewer > img { width: auto; max-width: min(1100px, 96vw); height: auto; max-height: calc(100dvh - 104px); object-fit: contain; border-radius: 8px; background: #fff; box-shadow: 0 24px 80px rgba(0,0,0,.38); }
+.image-viewer > p { color: #fff; font-weight: 800; }
+.image-viewer-close { position: absolute; top: max(18px, env(safe-area-inset-top)); right: max(18px, env(safe-area-inset-right)); }
+
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 16px; }
+.field { display: grid; gap: 7px; }
+.field.span-2 { grid-column: 1 / -1; }
+.field label { font-size: 13px; font-weight: 800; }
+.field small { color: var(--muted); line-height: 1.5; }
+.field input, .field textarea, .field select { width: 100%; min-height: 42px; padding: 10px 12px; color: var(--ink); background: #fff; border: 1px solid #cbd6dc; border-radius: 7px; outline: 0; }
+.field textarea { min-height: 76px; resize: vertical; }
+.field input:focus, .field textarea:focus, .field select:focus { border-color: var(--coral); box-shadow: 0 0 0 3px rgba(239,120,130,.14); }
+.form-error { color: #b74b55; font-size: 13px; font-weight: 700; }
+
+.segmented { display: inline-grid; grid-auto-flow: column; grid-auto-columns: minmax(110px, 1fr); padding: 4px; border-radius: 8px; background: #edf1f3; }
+.segmented button { min-height: 36px; padding: 0 13px; border: 0; border-radius: 6px; color: #667580; background: transparent; font-weight: 700; }
+.segmented button.active { color: var(--coral-strong); background: #fff; box-shadow: 0 2px 8px rgba(53, 66, 75, .1); }
+
+.empty-state { display: grid; place-items: center; min-height: 180px; padding: 28px; color: var(--muted); text-align: center; border: 1px dashed #cbd6dc; border-radius: 8px; background: rgba(255,255,255,.72); }
+.empty-state svg { width: 36px; height: 36px; margin-bottom: 10px; color: #9baab3; }
+
+@media (max-width: 700px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .field.span-2 { grid-column: auto; }
+  .modal-backdrop { padding: 10px; align-items: end; }
+  .modal { width: 100%; max-height: 90vh; padding: 18px; border-radius: 8px 8px 0 0; }
+  .modal-actions { position: sticky; bottom: -18px; margin-inline: -18px; padding: 14px 18px 18px; background: #fff; }
+  .segmented { display: flex; width: 100%; overflow-x: auto; }
+  .segmented button { flex: 1 0 auto; }
+}
